@@ -1,5 +1,7 @@
-
 #!/bin/bash
+#A simple script to manage your phonebook through Shell Scipting
+#Created by: Soumyadeep Roy
+#Dated: 5th May, 2020
 
 while  :
 
@@ -15,28 +17,30 @@ read -p "Enter your choice" usr_cmd
 clear
 case $usr_cmd in
 1)echo "ADD NEW CONTACT"
- read -p "Enter Name" name
+  read -p "Enter Name: " name
   echo "Got that!"
-  read -p "Enter Number" number
+  read -p "Enter Number: " number
   clear
   echo "New contact info:"
   echo "->Name: $name. ->Number: $number"
   echo "$name : $number" >> phonedir.log
- echo "Saved Successfully";;
+  echo "Saved Successfully"
+  ;;
 2)echo "SEARCH CONTACTS"
- read -p "Enter contact name to search" search_query
- clear
- echo "SEARCH RESULTS:"
- grep -i $search_query phonedir.log 
-;;
+  read -p "Enter contact name to search: " search_query
+  clear
+  echo "SEARCH RESULTS:"
+  grep -i $search_query phonedir.log 
+  ;;
 3)echo "DELETE CONTACT"
-read -p "Enter contact name to be Deleted(case-sensitive): " delete_string
-sed -i -e "/$delete-string/d" phonedir.log
-echo "Delete Successful"
-;;
+  read -p "Enter contact name to be Deleted(case-sensitive): " delete_string
+  sed -i -e "/$delete-string/d" phonedir.log
+  echo "Delete Successful"
+  ;;
 4)echo "Phone Directory"
-echo ""
- cat phonedir.log;;
+  echo ""
+  cat phonedir.log
+  ;;
 5)break;;
 *)echo "INVALID OPTION";;
 esac;
@@ -45,4 +49,3 @@ if [$confirm_exit eq 5]
 then break
 fi
 done
-
