@@ -7,3 +7,5 @@ set the phone_directory.sh file  as an excutable
  run the script
   
     ./phone_directory.sh
+
+Bash
